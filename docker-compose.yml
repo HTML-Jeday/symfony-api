@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-    nginx-php74-mysql8-node:
+    nginx-php74-mysql8:
 
 services:
 
@@ -18,7 +18,7 @@ services:
             - php74-service
             - mysql8-service
         networks:
-            - nginx-php74-mysql8-node
+            - nginx-php74-mysql8
 
     # php
     php74-service:
@@ -31,7 +31,7 @@ services:
         volumes:
             - ./app:/var/www/project
         networks:
-            - nginx-php74-mysql8-node
+            - nginx-php74-mysql8
 
     # mysql
     mysql8-service:
@@ -48,7 +48,7 @@ services:
             MYSQL_ROOT_PASSWORD: secret
             MYSQL_PASSWORD: secret
         networks:
-            - nginx-php74-mysql8-node
+            - nginx-php74-mysql8
 
     # node
     node-service:
@@ -58,4 +58,4 @@ services:
             - ./app:/var/www/project
         working_dir: /var/www/project
         networks:
-            - nginx-php74-mysql8-node
+            - nginx-php74-mysql8
